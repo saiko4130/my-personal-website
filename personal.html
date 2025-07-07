@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HM TANVIR RAHMAN SAIKOT | Personal Website</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a2238;
+            --accent: #ff6a3d;
+            --bg: #eaeaea;
+            --text: #22223b;
+            --white: #fff;
+            --hover: #283655;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        /* Add a semi-transparent overlay for readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.80);
+            z-index: 0;
+        }
+        #app-content, .container, header, footer, section {
+            position: relative;
+            z-index: 1;
+        }
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        header:hover {
+            background: var(--hover);
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #ff6a3d 10%, #1a2238 90%);
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 900;
+            text-shadow: 0 4px 24px rgba(44,62,80,0.13);
+            border-radius: 8px;
+            padding: 0.2em 0.6em;
+            display: inline-block;
+            transition: background 0.3s, color 0.3s, text-shadow 0.3s;
+            opacity: 0;
+            animation: fadeInDown 1s 0.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #bfc0c0;
+        }
+        nav {
+            margin-top: 1rem;
+        }
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 700;
+            transition: color 0.2s, background 0.2s, border-radius 0.2s;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            color: var(--primary);
+            background: var(--accent);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        section {
+            margin-bottom: 3rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+            padding: 2rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        section:hover {
+            box-shadow: 0 6px 24px rgba(44, 62, 80, 0.13);
+            transform: translateY(-3px) scale(1.01);
+        }
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .about-img {
+            flex: 1 1 180px;
+            max-width: 180px;
+            margin-right: 2rem;
+        }
+        .about-img img {
+            width: 100%;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            transition: border 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 24px rgba(44,62,80,0.13);
+            object-fit: cover;
+        }
+        .about-img img:hover {
+            border: 4px solid var(--hover);
+            box-shadow: 0 4px 16px rgba(44, 62, 80, 0.13);
+        }
+        .about-text {
+            flex: 3 1 300px;
+        }
+        .contact-details {
+            margin-bottom: 1.5rem;
+        }
+        .contact-details ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.1rem;
+        }
+        .contact-details li {
+            margin-bottom: 0.7rem;
+        }
+        .contact-link {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s, background 0.2s, border-radius 0.2s, box-shadow 0.2s;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .contact-link:hover {
+            color: var(--white);
+            background: var(--accent);
+            box-shadow: 0 2px 8px rgba(255, 106, 61, 0.13);
+            text-decoration: underline;
+        }
+        .facebook-link {
+            display: inline-flex;
+            align-items: center;
+            background: #1877f3;
+            color: #fff !important;
+            font-weight: 700;
+            border-radius: 6px;
+            padding: 0.2rem 0.8rem 0.2rem 0.5rem;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+            box-shadow: 0 1px 4px rgba(24, 119, 243, 0.10);
+            margin-left: 0.2rem;
+        }
+        .facebook-link:hover {
+            background: #145db2;
+            color: #fff !important;
+            box-shadow: 0 4px 16px rgba(24, 119, 243, 0.18);
+            transform: translateY(-2px) scale(1.04);
+            text-decoration: underline;
+        }
+        .facebook-link svg {
+            margin-right: 0.4rem;
+            width: 1.2em;
+            height: 1.2em;
+            fill: #fff;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 1rem;
+            margin-top: 2rem;
+            transition: background 0.3s;
+        }
+        footer:hover {
+            background: var(--hover);
+        }
+        .personal-details-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1.13rem;
+        }
+        .personal-details-list li {
+            margin-bottom: 0.9rem;
+            background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+            border-radius: 7px;
+            padding: 0.7em 1.1em;
+            color: #1a2238;
+            font-weight: 600;
+            box-shadow: 0 2px 12px rgba(161, 196, 253, 0.13);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+            letter-spacing: 0.02em;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.7s ease forwards;
+        }
+        .personal-details-list li:nth-child(1) { animation-delay: 0.1s; }
+        .personal-details-list li:nth-child(2) { animation-delay: 0.25s; }
+        .personal-details-list li:nth-child(3) { animation-delay: 0.4s; }
+        .personal-details-list li:nth-child(4) { animation-delay: 0.55s; }
+        .personal-details-list li:nth-child(5) { animation-delay: 0.7s; }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 700px) {
+            .about {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .about-img {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app-content">
+    <header>
+        <h1>HM TANVIR RAHMAN SAIKOT</h1>
+        <p>Portfolio | Student, CSE at Daffodil International University</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#personal-details">Personal Details</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="about">
+            <div class="about">
+                <div class="about-img">
+                    <img src="saikot1.jpg" alt="HM TANVIR RAHMAN SAIKOT profile photo">
+                </div>
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm HM TANVIR RAHMAN SAIKOT, a passionate Computer Science and Engineering student at Daffodil International University. As a fresher, I am eager to learn, grow, and build a strong foundation in technology. I am enthusiastic about web development, teamwork, and exploring new opportunities to develop my skills.</p>
+                </div>
+            </div>
+        </section>
+        <section id="personal-details">
+            <h2>Personal Details</h2>
+            <ul class="personal-details-list">
+                <li><strong>Hometown:</strong> <span class="special">Kushtia</span></li>
+                <li><strong>Present Address:</strong> <span class="special">Dhaka</span></li>
+                <li><strong>HSC:</strong> Passed from <span class="special">Govt. Shahid Suhrawardy College</span>, located in <span class="special">Puran Dhaka</span></li>
+                <li><strong>SSC:</strong> Passed from <span class="special">Radhanagar Majumder Academy School and College</span>, located in <span class="special">Pabna</span></li>
+                <li><strong>JSC:</strong> Passed from <span class="special">Baitush Sharaf Jabbaria Academy School and College</span>, located in <span class="special">Cox's Bazar</span></li>
+            </ul>
+        </section>
+        <section id="portfolio">
+            <h2>My Journey</h2>
+            <p>As a new student, I am focusing on building my knowledge and skills in computer science. I am enthusiastic about participating in university activities, collaborating with peers, and taking the first steps toward becoming a professional in the tech industry. I look forward to gaining hands-on experience and contributing to exciting projects in the future.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-details" style="margin-bottom: 1.5rem;">
+                <ul style="list-style: none; padding: 0; font-size: 1.1rem;">
+                    <li style="margin-bottom: 0.7rem;"><strong>Phone:</strong> <a href="tel:01533839457" class="contact-link">01533839457</a></li>
+                    <li style="margin-bottom: 0.7rem;"><strong>Instagram:</strong> <a href="https://www.instagram.com/saiko4130?igsh=eXh6azRzaHJ1ZWxv" target="_blank" class="contact-link">@saiko4130</a></li>
+                    <li><strong>Facebook:</strong> <a href="https://www.facebook.com/share/1HDUZRnWAS/" target="_blank" class="facebook-link"><svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>Facebook Profile</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <footer>
+        &copy; 2025 HM TANVIR RAHMAN SAIKOT. All rights reserved.
+    </footer>
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: target.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    </div>
+</body>
+</html>
